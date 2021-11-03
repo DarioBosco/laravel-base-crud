@@ -4,4 +4,5 @@
 
 @section('content')
     <h1>Contenuto Comics</h1>
+    @dump($comics)
 @endsection
