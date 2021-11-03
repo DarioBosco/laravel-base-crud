@@ -11,6 +11,9 @@
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input name="title" value="{{ $comic->title }}" type="text" class="form-control" id="title" placeholder="Insert the comic title">
+            @error('title')
+            <div class="alert alert-danger"> {{ $message }} </div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
@@ -35,6 +38,9 @@
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
             <input name="price" value="{{ $comic->price }}" type="text" class="form-control" id="price" placeholder="Insert the comic price">
+            @error('price')
+            <div class="alert alert-danger"> {{ $message }} </div>
+            @enderror
         </div>
 
         <button class="btn btn-primary" type='submit'>Update comic</button>

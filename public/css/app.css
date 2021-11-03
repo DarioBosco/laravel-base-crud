@@ -12197,8 +12197,3 @@ main .card span {
   font-weight: bold;
 }
 
-main .controls {
-  display: flex;
-  justify-content: space-evenly;
-}
-

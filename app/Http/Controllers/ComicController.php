@@ -37,6 +37,11 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $request->validate([
+            'title'=>'required|unique:comics',
+            'price'=>'required'
+        ]);
+
         $new_comic = new Comic();
         $new_comic->fill($data);
         $new_comic->save();
@@ -78,6 +83,10 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
         $data = $request->all();
+        $request->validate([
+            'title'=>'required|unique:comics', //Mi da errore se volessi mantenere lo stesso titolo...
+            'price'=>'required'
+        ]);
         $comic->update($data);
         return redirect()->route('comics.index');
     }
