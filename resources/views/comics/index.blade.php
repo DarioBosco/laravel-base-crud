@@ -12,8 +12,7 @@
                 <th>Series</th>
                 <th>Type</th>
                 <th>Price</th>
-                <th>Details</th>
-
+                <th>Controls</th>
             </tr>
         </thead>
         <tbody>
@@ -24,10 +23,14 @@
                 <td>{{$comic->series}}</td>
                 <td>{{$comic->type}}</td>
                 <td>{{$comic->price}}</td>
-                <td>
+                <td class="controls">
                     <a class="btn btn-info "href="{{route('comics.show', $comic->id)}}">Details</a>
-                    <a class="btn btn-warning "href="">Edit</a>
-                    <a class="btn btn-danger "href="">Delete</a>
+                    <a class="btn btn-warning "href="{{route('comics.edit', $comic->id)}}">Edit</a>
+                    <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
